@@ -4,53 +4,54 @@ import { Shield, MessageSquare, Eye, ArrowRight, CheckCircle, Zap, Lock, Users }
 const Services: React.FC = () => {
   const mainServices = [
     {
+      icon: Lock,
+      title: 'Server Recovery',
+      description: `We'll help recover raided or nuked servers`,
+      features: [
+        'Server restoration',
+        'Member recovery',
+        'Private discoverying from our team',
+        'Server security hardening',
+        'Backup system',
+        'Custom security protocols',
+      ],
+      price: '$3-20/mo (1-5000 members)'
+    },
+    {
       icon: Shield,
-      title: 'Account Recovery',
+      title: 'Priority Support',
       description: 'Professional Discord account recovery for compromised or stolen accounts.',
       features: [
-        'Token restoration',
-        '2FA bypass assistance', 
-        'Email recovery',
-        'Identity verification',
-        'Security audit',
-        '24/7 support'
+        'One-one discussion',
+        'Priority forum viewing', 
+        'Priority suggestions viewing',
+        'Priority reports viewing',
+        'priority only News and Security Alerts',
+        'Special priority only giveaways',
+        'Priority only Q&A events',
+        'Colorful Discord Server Role'
       ],
-      price: '$49',
+      price: '$5/mo',
       popular: true
     },
     {
-      icon: MessageSquare,
-      title: 'Server Protection',
-      description: 'Complete server protection and restoration after raids or takeovers.',
-      features: [
-        'Channel restoration',
-        'Role management', 
-        'Member recovery',
-        'Permission setup',
-        'Bot configuration',
-        'Backup system'
-      ],
-      price: '$99'
-    },
-    {
       icon: Eye,
-      title: 'Security Audit',
-      description: 'Comprehensive security assessment with vulnerability report.',
+      title: 'Account Recovery',
+      description: 'We will help recover account that have been falsely banned, reported, scammed, etc. THIS RECOVERY SERVICE IS NOT 100%, WE\'RE JUST GOING TO HELP',
       features: [
-        'Account security scan',
-        'Server audit',
-        'Bot analysis',
-        'Threat assessment',
-        'Security protocols',
-        'Implementation guide'
+        'Assistance with falsely banned accounts',
+        'Help with account recovery process',
+        'Explanation of why you were banned',
+        'Tips to avoid getting banned again',
+        'Convery for second-time falsely banned accounts'
       ],
-      price: '$29'
+      price: '$3 (1st), $6 (2nd)'
     }
   ];
 
   const additionalServices = [
     { icon: Zap, title: 'Emergency Response', price: '$149', description: '24/7 emergency response for active incidents' },
-    { icon: Lock, title: 'Security Setup', price: '$39', description: 'Complete security hardening and 2FA setup' },
+    { icon: MessageSquare, title: 'Security Setup', price: '$39', description: 'Complete security hardening and 2FA setup' },
     { icon: Users, title: 'Team Training', price: '$79', description: 'Security training for your team' },
     { icon: Eye, title: 'Monitoring', price: '$19/mo', description: 'Ongoing security monitoring' }
   ];
