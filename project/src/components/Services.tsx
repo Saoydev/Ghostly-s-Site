@@ -15,7 +15,7 @@ const Services: React.FC = () => {
         'Backup system',
         'Custom security protocols',
       ],
-      price: '$3-20/mo (1-5000 members)'
+      price: '$3-20'
     },
     {
       icon: Shield,
@@ -45,7 +45,7 @@ const Services: React.FC = () => {
         'Tips to avoid getting banned again',
         'Convery for second-time falsely banned accounts'
       ],
-      price: '$3 (1st), $6 (2nd)'
+      price: '$3-6'
     }
   ];
 
