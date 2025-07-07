@@ -48,14 +48,6 @@ const Services: React.FC = () => {
       price: '$3-6'
     }
   ];
-
-  const additionalServices = [
-    { icon: Zap, title: 'Emergency Response', price: '$149', description: '24/7 emergency response for active incidents' },
-    { icon: MessageSquare, title: 'Security Setup', price: '$39', description: 'Complete security hardening and 2FA setup' },
-    { icon: Users, title: 'Team Training', price: '$79', description: 'Security training for your team' },
-    { icon: Eye, title: 'Monitoring', price: '$19/mo', description: 'Ongoing security monitoring' }
-  ];
-
   return (
     <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
@@ -116,29 +108,6 @@ const Services: React.FC = () => {
                 </button>
               </div>
             ))}
-          </div>
-
-          {/* Additional Services */}
-          <div className="mb-16">
-            <h3 className="text-2xl font-bold text-white text-center mb-8">Additional Services</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {additionalServices.map((service, index) => (
-                <div key={index} className="bg-slate-800/80 backdrop-blur-sm border border-slate-700/50 rounded-lg p-6">
-                  <div className="inline-flex items-center justify-center w-10 h-10 bg-[#fa1f5a] rounded-lg mb-4">
-                    <service.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-white">{service.title}</h4>
-                    <span className="font-bold text-[#fa1f5a]">{service.price}</span>
-                  </div>
-                  <p className="text-slate-300 text-sm mb-4">{service.description}</p>
-                  <button className="text-[#fa1f5a] font-semibold hover:text-[#e11d48] transition-colors">
-                    Learn More
-                    <ArrowRight className="ml-1 h-4 w-4 inline" />
-                  </button>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Emergency CTA */}
