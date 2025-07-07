@@ -67,7 +67,7 @@ const About: React.FC = () => {
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white mb-6 flex items-center">
                 <Zap className="h-8 w-8 text-[#fa1f5a] mr-3" />
-                Our <span className="text-[#fa1f5a]">Mission</span>
+                Our Mission
               </h3>
               <p className="text-lg text-slate-300 mb-6">
                 To create the most secure Discord ecosystem by providing comprehensive 
