@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Router components
+
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,20 +10,20 @@ import SecuritySimulator from './components/SecuritySimulator';
 import ThreatIntelligence from './components/ThreatIntelligence';
 import Footer from './components/Footer';
 
+// Assuming you also have a HowWeWork component based on your file structure
+import HowWeWork from './components/HowWeWork'; 
+import ThreatCounter from './components/ThreatCounter'; // Assuming this also exists
+
 // Import the new PrivacyPolicyPage component
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage'; // Assuming you created this file in src/pages/
-
-// You might also have a HowWeWork component based on your file structure,
-// add it back to the home page content if it's part of the main landing.
-// import HowWeWork from './components/HowWeWork';
-
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 function App() {
   return (
     <ThemeProvider>
       <Router> {/* Wrap your entire application with BrowserRouter */}
         <div className="min-h-screen">
-          <Navbar /> {/* Navbar stays outside Routes to be visible on all pages */}
+          {/* Navbar stays outside Routes to be visible on all pages */}
+          <Navbar /> 
 
           <Routes> {/* Define your routes here */}
             {/* Route for the homepage. All existing main sections go here. */}
@@ -34,9 +35,10 @@ function App() {
                   <About />
                   <Services />
                   <SecuritySimulator />
+                  <HowWeWork /> {/* Added based on file structure */}
+                  <ThreatCounter /> {/* Added based on file structure */}
                   <ThreatIntelligence />
-                  {/* If you have a HowWeWork component that belongs on the homepage, add it here */}
-                  {/* <HowWeWork /> */}
+                  {/* Add any other components that form your main homepage */}
                 </>
               }
             />
@@ -51,7 +53,8 @@ function App() {
             */}
           </Routes>
 
-          <Footer /> {/* Footer also stays outside Routes to be visible on all pages */}
+          {/* Footer also stays outside Routes to be visible on all pages */}
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>
