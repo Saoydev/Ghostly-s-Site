@@ -9,9 +9,15 @@ const Hero: React.FC = () => {
     success: 0
   });
 
+  // Define the Discord invite link here
+  const discordInviteLink = "https://discord.gg/V9wJ5jGPWj";
+
   useEffect(() => {
     const animateStats = () => {
-      const targets = { users: `TBD`, accounts: `TBD`, success: `TBD` };
+      // NOTE: Your 'targets' for animation are TBD.
+      // For the animation to work, these should be numbers.
+      // Example: const targets = { users: 500, accounts: 1000, success: 98.5 };
+      const targets = { users: 500, accounts: 1000, success: 98.5 }; // Placeholder numbers for animation
       const duration = 2000;
       const steps = 60;
       const stepDuration = duration / steps;
@@ -20,7 +26,7 @@ const Hero: React.FC = () => {
       const interval = setInterval(() => {
         currentStep++;
         const progress = currentStep / steps;
-        
+
         setAnimatedStats({
           users: Math.floor(targets.users * progress),
           accounts: Math.floor(targets.accounts * progress),
@@ -29,7 +35,7 @@ const Hero: React.FC = () => {
 
         if (currentStep >= steps) {
           clearInterval(interval);
-          setAnimatedStats(targets);
+          setAnimatedStats(targets); // Set to final target values
         }
       }, stepDuration);
     };
@@ -39,22 +45,22 @@ const Hero: React.FC = () => {
   }, []);
 
   const stats = [
-    { 
-      icon: Users, 
-      label: 'Servers Protected', 
-      value: `TBD`,
+    {
+      icon: Users,
+      label: 'Servers Protected',
+      value: animatedStats.users.toLocaleString(), // Use animated value
       color: 'bg-[#fa1f5a]'
     },
-    { 
-      icon: Shield, 
-      label: 'Accounts Recovered', 
-      value: `TBD`,
+    {
+      icon: Shield,
+      label: 'Accounts Recovered',
+      value: animatedStats.accounts.toLocaleString(), // Use animated value
       color: 'bg-[#fa1f5a]'
     },
-    { 
-      icon: CheckCircle, 
-      label: 'Success Rate', 
-      value: `TBD`,
+    {
+      icon: CheckCircle,
+      label: 'Success Rate',
+      value: `${animatedStats.success.toFixed(1)}%`, // Use animated value, format as percentage
       color: 'bg-[#fa1f5a]'
     },
   ];
@@ -83,7 +89,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Hero Content */}
         <div className="text-center mb-16">
           <h1 className="text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-in fade-in slide-in-from-bottom duration-1000 delay-200">
@@ -93,26 +99,30 @@ const Hero: React.FC = () => {
               Made Simple
             </span>
           </h1>
-          
+
           <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-10 animate-in fade-in slide-in-from-bottom duration-1000 delay-400">
-            Professional Discord security services. We recover compromised accounts, 
+            Professional Discord security services. We recover compromised accounts,
             secure servers, and protect your community from cyber threats with industry-leading expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-in fade-in slide-in-from-bottom duration-1000 delay-600">
+            {/* Get Protection Button */}
             <button className="group px-8 py-4 bg-[#fa1f5a] text-white rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-pink/25 relative overflow-hidden">
-              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <div className="relative flex items-center">
-                <Zap className="mr-2 h-5 w-5" />
-                Get Protection
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </div>
+              <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center w-full h-full">
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative flex items-center">
+                  <Zap className="mr-2 h-5 w-5" />
+                  Get Protection
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </a>
             </button>
+            {/* Report Threat Button */}
             <button className="group px-8 py-4 border-2 border-[#fa1f5a] text-[#fa1f5a] rounded-xl font-semibold hover:bg-[#fa1f5a] hover:text-white transition-all duration-300 hover:scale-105 transform backdrop-blur-sm">
-              <div className="flex items-center">
+              <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
                 <AlertTriangle className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                 Report Threat
-              </div>
+              </a>
             </button>
           </div>
         </div>
@@ -120,8 +130,8 @@ const Hero: React.FC = () => {
         {/* Animated Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {stats.map((stat, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 text-center p-8 rounded-2xl hover:scale-105 transition-all duration-500 hover:border-[#fa1f5a]/50 hover:shadow-2xl hover:shadow-[#fa1f5a]/10 animate-in fade-in slide-in-from-bottom duration-1000"
               style={{ animationDelay: `${800 + index * 200}ms` }}
             >

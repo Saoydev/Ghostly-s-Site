@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
 
     // Cleanup: remove event listener and reset body overflow when component unmounts
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleClick.bind(null)); // Re-bind to ensure it works after cleanup
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]); // Only re-run when isMenuOpen changes
@@ -76,6 +76,8 @@ const Navbar: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const discordInviteLink = "https://discord.gg/V9wJ5jGPWj"; // Define the link here
 
   return (
     <>
@@ -175,9 +177,10 @@ const Navbar: React.FC = () => {
                 </div>
               </button>
 
-              {/* CTA Button */}
+              {/* CTA Button (Desktop) */}
               <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                <a href="https://discord.gg/V9wJ5jGPWj" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+                {/* Changed the href here */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
                   <Zap className="h-4 w-4" />
                   <span>Get Protection</span>
                 </a>
@@ -203,11 +206,10 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Mobile Navigation Content */}
-        {/* Adjusted classes for smoother transition and correct positioning */}
         <div
           className={`
             lg:hidden
-            absolute inset-x-0 top-20 z-50 {/* Ensure mobile menu is above the overlay */}
+            absolute inset-x-0 top-20 z-50
             bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl
             transform transition-all duration-300 ease-in-out
             ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}
@@ -243,11 +245,14 @@ const Navbar: React.FC = () => {
               </div>
             ))}
 
-            {/* Mobile CTA */}
+            {/* Mobile CTA Button */}
             <div className="pt-4 border-t border-slate-700/50 mt-4">
               <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#e11d48] transition-colors">
-                <Zap className="h-4 w-4" />
-                <span>Get Protection</span>
+                {/* Changed the href here */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+                  <Zap className="h-4 w-4" />
+                  <span>Get Protection</span>
+                </a>
               </button>
             </div>
           </div>

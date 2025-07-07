@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-green-400">All Systems Operational</span>
               </div>
-              <span className="text-slate-400">98.5% Success Rate</span>
+              <span className="text-slate-400">TBD% Success Rate</span>
             </div>
           </div>
         </div>

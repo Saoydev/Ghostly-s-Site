@@ -2,6 +2,8 @@ import React from 'react';
 import { Shield, MessageSquare, Eye, ArrowRight, CheckCircle, Zap, Lock, Users } from 'lucide-react';
 
 const Services: React.FC = () => {
+  const discordInviteLink = "https://discord.gg/V9wJ5jGPWj"; // Define the Discord link here
+
   const mainServices = [
     {
       icon: Lock,
@@ -102,9 +104,12 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
 
-                <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:bg-[#e11d48] transition-colors mt-auto"> {/* Added mt-auto */}
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4 inline" />
+                {/* "Get Started" Button with Discord Link */}
+                <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:bg-[#e11d48] transition-colors mt-auto">
+                  <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                    Get Started
+                    <ArrowRight className="ml-2 h-4 w-4 inline" />
+                  </a>
                 </button>
               </div>
             ))}
@@ -118,12 +123,20 @@ const Services: React.FC = () => {
               our emergency response team is standing by 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Emergency Support Button */}
               <button className="px-8 py-4 bg-white text-[#fa1f5a] rounded-lg font-semibold hover:bg-slate-100 transition-colors">
-                Emergency Support
-                <ArrowRight className="ml-2 h-5 w-5 inline" />
+                {/* You might want this to also link to Discord or a specific emergency support channel */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                  Emergency Support
+                  <ArrowRight className="ml-2 h-5 w-5 inline" />
+                </a>
               </button>
+              {/* Report Threat Button */}
               <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#fa1f5a] transition-all">
-                Report Threat
+                 {/* This button might also link to Discord or a specific report form/channel */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                  Report Threat
+                </a>
               </button>
             </div>
           </div>

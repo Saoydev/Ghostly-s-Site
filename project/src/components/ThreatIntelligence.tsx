@@ -53,6 +53,8 @@ const ThreatIntelligence: React.FC = () => {
     return trend.startsWith('+') ? 'text-red-400' : 'text-green-400';
   };
 
+  const discordInviteLink = "https://discord.gg/V9wJ5jGPWj"; // Define the Discord link here
+
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-6">
@@ -228,9 +230,12 @@ const ThreatIntelligence: React.FC = () => {
                 Join thousands of Discord servers already protected by our advanced threat detection system. 
                 Get instant alerts and automatic protection against all known threats.
               </p>
+              {/* This is the button you asked to link */}
               <button className="px-8 py-4 bg-[#fa1f5a] text-white rounded-xl font-bold text-lg hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-3 mx-auto">
-                <Zap className="h-6 w-6" />
-                <span>Enable Protection</span>
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 w-full h-full justify-center">
+                  <Zap className="h-6 w-6" />
+                  <span>Enable Protection</span>
+                </a>
               </button>
             </div>
           </div>
