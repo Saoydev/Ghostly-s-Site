@@ -3,21 +3,16 @@ import { Shield, Mail, Twitter, Github, MessageCircle, MapPin, Clock } from 'luc
 
 const Footer: React.FC = () => {
   const quickLinks = [
-    // These links are assumed to be internal and potentially scroll to sections on the same page.
-    // If they should navigate to distinct pages, you'd define new routes for them in App.tsx
-    // and adjust their 'href' accordingly (e.g., '/services/account-recovery').
-    { name: 'Account Recovery', href: '#services' },
+    { name: 'Account Recovery', href: '#services' }, // Assuming these link to sections within the same page
     { name: 'Server Protection', href: '#services' },
     { name: 'Security Audit', href: '#services' },
     { name: 'Emergency Support', href: '#services' }
   ];
 
-  const legalLinks = [
-    // 'Privacy Policy' is set to open in a new tab at '/privacy'.
-    // Other links are examples of how you might set up internal or external links.
+  const legalLinks = [ // Renamed from 'legal' to avoid confusion with the object structure
     { name: 'Privacy Policy', href: '/privacy', target: '_blank', rel: 'noopener noreferrer' },
-    { name: 'Terms of Service', href: '/terms' }, // Example: link to /terms (internal, same tab)
-    { name: 'Refund Policy', href: '/refund-policy' }, // Example: link to /refund-policy (internal, same tab)
+    { name: 'Terms of Service', href: '/terms' }, // Example: link to /terms
+    { name: 'Refund Policy', href: '/refund-policy' }, // Example: link to /refund-policy
     { name: 'Status Page', href: 'https://status.securely.one', target: '_blank', rel: 'noopener noreferrer' } // Example: external link
   ];
 
@@ -39,7 +34,7 @@ const Footer: React.FC = () => {
             </div>
 
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Professional Discord security services trusted by over 500+ users worldwide.
+              Professional Discord security services trusted by over 500+ users worldwide. 
               We protect, recover, and secure your Discord presence.
             </p>
 
@@ -95,8 +90,8 @@ const Footer: React.FC = () => {
                 <li key={index}>
                   <a
                     href={item.href}
-                    target={item.target || '_self'} // Defaults to _self if target is not specified
-                    rel={item.rel || ''} // Defaults to empty string if rel is not specified
+                    target={item.target || '_self'} // Default to _self if target is not specified
+                    rel={item.rel || ''}
                     className="text-slate-300 hover:text-white transition-colors"
                   >
                     {item.name}
@@ -113,7 +108,7 @@ const Footer: React.FC = () => {
             <div className="text-slate-400 text-sm text-center md:text-left">
               © 2024 Securely. All rights reserved.
             </div>
-
+            
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
