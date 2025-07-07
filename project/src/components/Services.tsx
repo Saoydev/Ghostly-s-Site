@@ -49,6 +49,13 @@ const Services: React.FC = () => {
     }
   ];
 
+  const additionalServices = [
+    { icon: Zap, title: 'Emergency Response', price: '$149', description: '24/7 emergency response for active incidents' },
+    { icon: MessageSquare, title: 'Security Setup', price: '$39', description: 'Complete security hardening and 2FA setup' },
+    { icon: Users, title: 'Team Training', price: '$79', description: 'Security training for your team' },
+    { icon: Eye, title: 'Monitoring', price: '$19/mo', description: 'Ongoing security monitoring' }
+  ];
+
   return (
     <section id="services" className="py-20">
       <div className="max-w-6xl mx-auto px-6">
