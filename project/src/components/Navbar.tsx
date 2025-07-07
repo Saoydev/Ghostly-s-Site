@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // Import useRef
+import React, { useState, useEffect, useRef } from 'react';
 import { Settings, Menu, X, Shield, Zap, Bell, ChevronDown } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 
@@ -8,11 +8,8 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-  // Ref for the mobile menu container
-  const mobileMenuRef = useRef<HTMLDivElement>(null);
   // Ref for the main navbar container (useful for outside clicks)
   const navbarRef = useRef<HTMLElement>(null);
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,24 +24,31 @@ const Navbar: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
 
-      // Close mobile menu if clicked outside the entire navbar (including mobile menu)
-      // This also ensures clicks inside the mobile menu don't close it immediately
+      // Close menu if clicked outside the entire navbar (including logo, desktop controls, and the mobile menu content itself)
       if (navbarRef.current && !navbarRef.current.contains(target)) {
         setIsMenuOpen(false);
         setActiveDropdown(null);
       }
     };
 
+    // Add/remove event listener based on menu state
     if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside); // Use mousedown for faster detection
+      document.addEventListener('mousedown', handleClickOutside);
+      // Optional: Prevent body scrolling when menu is open
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
+      // Restore body scrolling
+      document.body.style.overflow = 'unset';
     }
 
+    // Cleanup: remove event listener and reset body overflow when component unmounts
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]); // Only re-run when isMenuOpen changes
+
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -75,6 +79,17 @@ const Navbar: React.FC = () => {
 
   return (
     <>
+      {/* Overlay for mobile menu background */}
+      <div
+        className={`
+          fixed inset-0 bg-black/70 backdrop-blur-md z-40
+          transition-opacity duration-300
+          ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
+          lg:hidden {/* Ensure it's only active on mobile */}
+        `}
+        onClick={() => setIsMenuOpen(false)} // Click on overlay closes the menu
+      />
+
       <nav
         ref={navbarRef} // Attach ref to the main nav container
         className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -187,19 +202,18 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Content */}
         {/* Adjusted classes for smoother transition and correct positioning */}
         <div
-          ref={mobileMenuRef} // Attach ref to the mobile menu container
           className={`
             lg:hidden
-            absolute inset-x-0 top-20 
+            absolute inset-x-0 top-20 z-50 {/* Ensure mobile menu is above the overlay */}
             bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl
             transform transition-all duration-300 ease-in-out
             ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}
           `}
         >
-          <div className="py-4 px-4 sm:px-6 lg:px-8 space-y-1"> {/* Added px here for padding */}
+          <div className="py-4 px-4 sm:px-6 lg:px-8 space-y-1">
             {navItems.map((item) => (
               <div key={item.name}>
                 <button
