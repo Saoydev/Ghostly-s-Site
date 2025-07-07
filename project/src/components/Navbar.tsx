@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
               {/* Trust Badge */}
               <div className="flex items-center space-x-2 px-4 py-2 bg-slate-800/60 border border-slate-700/50 rounded-full backdrop-blur-sm">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs text-slate-300 font-medium">500K+ Protected</span>
+                <span className="text-xs text-slate-300 font-medium">500+ Protected</span>
               </div>
 
               {/* Notification Bell */}

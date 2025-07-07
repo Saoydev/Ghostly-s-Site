@@ -12,13 +12,13 @@ const About: React.FC = () => {
     {
       icon: Users,
       title: 'Account Recovery',
-      description: 'Advanced account recovery services with 98.5% success rate.',
+      description: 'Advanced account recovery services with TBH% success rate.',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Award,
       title: 'Proven Results',
-      description: 'Over 25,000 successful account recoveries and counting.',
+      description: 'Over TBD successful account recoveries and counting.',
       color: 'from-green-500 to-emerald-500'
     },
     {
@@ -30,10 +30,10 @@ const About: React.FC = () => {
   ];
 
   const achievements = [
-    { value: '500K+', label: 'Users Protected', icon: Users },
-    { value: '25K+', label: 'Accounts Recovered', icon: Shield },
-    { value: '10K+', label: 'Servers Secured', icon: Award },
-    { value: '98.5%', label: 'Success Rate', icon: Star }
+    { value: '500+', label: 'Users Protected', icon: Users },
+    { value: 'TBD', label: 'Accounts Recovered', icon: Shield },
+    { value: 'TBD', label: 'Servers Secured', icon: Award },
+    { value: 'TBD', label: 'Success Rate', icon: Star }
   ];
 
   return (
@@ -49,8 +49,8 @@ const About: React.FC = () => {
           {/* Trust Badge */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-4 py-2 bg-[#fa1f5a]/20 border border-[#fa1f5a]/30 text-white rounded-full text-sm font-semibold backdrop-blur-sm">
-              <Star className="h-4 w-4 text-yellow-400 mr-2 animate-pulse" />
-              <span className="text-[#fa1f5a]">Trusted by 500K+ Discord users worldwide</span>
+              <Star className="h-4 w-4 text-red-400 mr-2 animate-pulse" />
+              <span className="text-[#fa1f5a]">Trusted by 500+ Discord users worldwide</span>
             </div>
           </div>
 
@@ -59,8 +59,7 @@ const About: React.FC = () => {
               About <span className="text-[#fa1f5a]">Securely</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Founded by cybersecurity experts to protect Discord communities from growing threats. 
-              We're the trusted guardians of hundreds of thousands of Discord users worldwide.
+            Founded by digital safety specialists to safeguard Discord communities from growing online threats. We are the trusted guardians, fostering an environment where hundreds of thousands of Discord users worldwide can interact reliably and with confidence.
             </p>
           </div>
 
@@ -68,14 +67,14 @@ const About: React.FC = () => {
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white mb-6 flex items-center">
                 <Zap className="h-8 w-8 text-[#fa1f5a] mr-3" />
-                Our Mission
+                Our <span className="text-[#fa1f5a]">Mission</span>
               </h3>
               <p className="text-lg text-slate-300 mb-6">
                 To create the most secure Discord ecosystem by providing comprehensive 
                 security services, education, and rapid response to threats.
               </p>
               <p className="text-lg text-slate-300">
-                Our team of Discord security specialists and cybersecurity experts 
+                Our team of Discord security specialists 
                 work around the clock to identify threats and help victims recover.
               </p>
 
