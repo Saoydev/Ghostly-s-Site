@@ -42,19 +42,19 @@ const Hero: React.FC = () => {
     { 
       icon: Users, 
       label: 'Servers Protected', 
-      value: `${animatedStats.users}+`,
+      value: `TBD`,
       color: 'bg-[#fa1f5a]'
     },
     { 
       icon: Shield, 
       label: 'Accounts Recovered', 
-      value: `${animatedStats.accounts}`,
+      value: `TBD`,
       color: 'bg-[#fa1f5a]'
     },
     { 
       icon: CheckCircle, 
       label: 'Success Rate', 
-      value: `${animatedStats.success}`,
+      value: `TBD`,
       color: 'bg-[#fa1f5a]'
     },
   ];
