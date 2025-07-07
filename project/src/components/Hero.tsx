@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const animateStats = () => {
-      const targets = { users: 500, accounts: 0, success: `TBD` };
+      const targets = { users: `TBD`, accounts: `TBD`, success: `TBD` };
       const duration = 2000;
       const steps = 60;
       const stepDuration = duration / steps;
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
   const stats = [
     { 
       icon: Users, 
-      label: 'Users Protected', 
+      label: 'Servers Protected', 
       value: `${animatedStats.users}+`,
       color: 'bg-[#fa1f5a]'
     },

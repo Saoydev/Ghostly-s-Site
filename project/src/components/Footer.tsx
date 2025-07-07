@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-[#fa1f5a]" />
-                <span className="text-slate-300">support@securely.gg</span>
+                <span className="text-slate-300">contact@securely.one</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Clock className="h-4 w-4 text-green-400" />
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-slate-700/50 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm text-center md:text-left">
-              © 2024 Securely. All rights reserved. Discord is a trademark of Discord Inc.
+              © 2024 Securely. All rights reserved.
             </div>
             
             <div className="flex items-center space-x-6 text-sm">

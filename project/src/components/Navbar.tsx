@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react'; // Import useRef
 import { Settings, Menu, X, Shield, Zap, Bell, ChevronDown } from 'lucide-react';
 import SettingsModal from './SettingsModal';
 
@@ -7,6 +7,12 @@ const Navbar: React.FC = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  // Ref for the mobile menu container
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  // Ref for the main navbar container (useful for outside clicks)
+  const navbarRef = useRef<HTMLElement>(null);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,26 +26,31 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest('.navbar-container')) {
+
+      // Close mobile menu if clicked outside the entire navbar (including mobile menu)
+      // This also ensures clicks inside the mobile menu don't close it immediately
+      if (navbarRef.current && !navbarRef.current.contains(target)) {
         setIsMenuOpen(false);
         setActiveDropdown(null);
       }
     };
 
     if (isMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside); // Use mousedown for faster detection
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen]); // Only re-run when isMenuOpen changes
 
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { 
-      name: 'Services', 
+    {
+      name: 'Services',
       href: '#services',
       dropdown: [
         { name: 'Account Recovery', href: '#services' },
@@ -53,9 +64,8 @@ const Navbar: React.FC = () => {
   ];
 
   const handleNavClick = (href: string) => {
-    setIsMenuOpen(false);
-    setActiveDropdown(null);
-    
+    setIsMenuOpen(false); // Close mobile menu on nav item click
+    setActiveDropdown(null); // Close any open dropdowns
     // Smooth scroll to section
     const element = document.querySelector(href);
     if (element) {
@@ -65,11 +75,14 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl' 
-          : 'bg-slate-900/80 backdrop-blur-sm'
-      }`}>
+      <nav
+        ref={navbarRef} // Attach ref to the main nav container
+        className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl'
+            : 'bg-slate-900/80 backdrop-blur-sm'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -96,10 +109,10 @@ const Navbar: React.FC = () => {
                     <span>{item.name}</span>
                     {item.dropdown && <ChevronDown className="h-4 w-4 transition-transform duration-200" />}
                   </button>
-                  
-                  {/* Dropdown Menu */}
+
+                  {/* Desktop Dropdown Menu */}
                   {item.dropdown && activeDropdown === item.name && (
-                    <div 
+                    <div
                       className="absolute top-full left-0 mt-2 w-64 bg-slate-800/95 backdrop-blur-xl border border-slate-700/50 rounded-xl shadow-2xl py-2 animate-in fade-in slide-in-from-top-2 duration-200 z-50"
                       onMouseEnter={() => setActiveDropdown(item.name)}
                       onMouseLeave={() => setActiveDropdown(null)}
@@ -148,12 +161,12 @@ const Navbar: React.FC = () => {
               </button>
 
               {/* CTA Button */}
-        <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
-      <a href="https://discord.gg/V9wJ5jGPWj" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
-    <Zap className="h-4 w-4" />
-    <span>Get Protection</span>
-  </a>
-</button>
+              <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
+                <a href="https://discord.gg/V9wJ5jGPWj" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+                  <Zap className="h-4 w-4" />
+                  <span>Get Protection</span>
+                </a>
+              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -172,56 +185,64 @@ const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
+        </div>
 
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="lg:hidden border-t border-slate-700/50 py-4 animate-in slide-in-from-top duration-200">
-              <div className="space-y-1">
-                {navItems.map((item) => (
-                  <div key={item.name}>
-                    <button
-                      onClick={() => !item.dropdown ? handleNavClick(item.href) : setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                      className="w-full text-left flex items-center justify-between px-4 py-3 text-slate-200 hover:text-white hover:bg-slate-800/60 rounded-lg font-medium transition-colors"
-                    >
-                      <span>{item.name}</span>
-                      {item.dropdown && (
-                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? 'rotate-180' : ''
-                        }`} />
-                      )}
-                    </button>
-                    {item.dropdown && activeDropdown === item.name && (
-                      <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
-                        {item.dropdown.map((dropdownItem) => (
-                          <button
-                            key={dropdownItem.name}
-                            onClick={() => handleNavClick(dropdownItem.href)}
-                            className="w-full text-left block px-4 py-2 text-slate-400 hover:text-slate-200 text-sm transition-colors rounded-lg hover:bg-slate-800/40"
-                          >
-                            {dropdownItem.name}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+        {/* Mobile Navigation */}
+        {/* Adjusted classes for smoother transition and correct positioning */}
+        <div
+          ref={mobileMenuRef} // Attach ref to the mobile menu container
+          className={`
+            lg:hidden
+            absolute inset-x-0 top-20 
+            bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl
+            transform transition-all duration-300 ease-in-out
+            ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}
+          `}
+        >
+          <div className="py-4 px-4 sm:px-6 lg:px-8 space-y-1"> {/* Added px here for padding */}
+            {navItems.map((item) => (
+              <div key={item.name}>
+                <button
+                  onClick={() => !item.dropdown ? handleNavClick(item.href) : setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                  className="w-full text-left flex items-center justify-between px-4 py-3 text-slate-200 hover:text-white hover:bg-slate-800/60 rounded-lg font-medium transition-colors"
+                >
+                  <span>{item.name}</span>
+                  {item.dropdown && (
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                      activeDropdown === item.name ? 'rotate-180' : ''
+                    }`} />
+                  )}
+                </button>
+                {item.dropdown && activeDropdown === item.name && (
+                  <div className="ml-4 mt-2 space-y-1 animate-in slide-in-from-top duration-200">
+                    {item.dropdown.map((dropdownItem) => (
+                      <button
+                        key={dropdownItem.name}
+                        onClick={() => handleNavClick(dropdownItem.href)}
+                        className="w-full text-left block px-4 py-2 text-slate-400 hover:text-slate-200 text-sm transition-colors rounded-lg hover:bg-slate-800/40"
+                      >
+                        {dropdownItem.name}
+                      </button>
+                    ))}
                   </div>
-                ))}
-                
-                {/* Mobile CTA */}
-                <div className="pt-4 border-t border-slate-700/50 mt-4">
-                  <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#e11d48] transition-colors">
-                    <Zap className="h-4 w-4" />
-                    <span>Get Protection</span>
-                  </button>
-                </div>
+                )}
               </div>
+            ))}
+
+            {/* Mobile CTA */}
+            <div className="pt-4 border-t border-slate-700/50 mt-4">
+              <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#e11d48] transition-colors">
+                <Zap className="h-4 w-4" />
+                <span>Get Protection</span>
+              </button>
             </div>
-          )}
+          </div>
         </div>
       </nav>
 
-      <SettingsModal 
-        isOpen={isSettingsOpen} 
-        onClose={() => setIsSettingsOpen(false)} 
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
       />
     </>
   );
