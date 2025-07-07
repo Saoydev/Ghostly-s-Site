@@ -23,13 +23,21 @@ const Services: React.FC = () => {
       description: 'Professional Discord account recovery for compromised or stolen accounts.',
       features: [
         'One-one discussion',
-        'Priority forum viewing', 
+        'Priority forum viewing',
         'Priority suggestions viewing',
         'Priority reports viewing',
         'priority only News and Security Alerts',
         'Special priority only giveaways',
         'Priority only Q&A events',
-        'Colorful Discord Server Role'
+        'Colorful Discord Server Role',
+        // Add more features here to test scrolling:
+        'Exclusive Discord channel access',
+        'Dedicated support manager',
+        'Early access to new features',
+        'Monthly security reports',
+        'Custom bot integrations',
+        'Priority incident resolution',
+        'Enhanced community moderation tools'
       ],
       price: '$5/mo',
       popular: true
@@ -65,7 +73,7 @@ const Services: React.FC = () => {
               Our <span className="text-[#fa1f5a]">Services</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Professional Discord security services designed to protect, recover, and secure 
+              Professional Discord security services designed to protect, recover, and secure
               your Discord presence against all types of threats.
             </p>
           </div>
@@ -73,9 +81,9 @@ const Services: React.FC = () => {
           {/* Main Services */}
           <div className="grid lg:grid-cols-3 gap-8 mb-16">
             {mainServices.map((service, index) => (
-              <div 
-                key={index} 
-                className={`bg-slate-800/80 backdrop-blur-sm border rounded-xl p-8 relative ${
+              <div
+                key={index}
+                className={`bg-slate-800/80 backdrop-blur-sm border rounded-xl p-8 relative flex flex-col ${ // Added flex flex-col
                   service.popular ? 'border-[#fa1f5a]' : 'border-slate-700/50'
                 }`}
               >
@@ -86,7 +94,7 @@ const Services: React.FC = () => {
                     </span>
                   </div>
                 )}
-                
+
                 <div className="flex items-center justify-between mb-6">
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-[#fa1f5a] rounded-lg">
                     <service.icon className="h-6 w-6 text-white" />
@@ -96,11 +104,12 @@ const Services: React.FC = () => {
                     <div className="text-slate-400 text-sm">per service</div>
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-white mb-4">{service.title}</h3>
                 <p className="text-slate-300 mb-6">{service.description}</p>
-                
-                <ul className="space-y-3 mb-8">
+
+                {/* SCROLLABLE FEATURES LIST */}
+                <ul className="space-y-3 mb-8 flex-grow overflow-y-auto max-h-48 pr-2"> {/* Added flex-grow, overflow-y-auto, max-h-48, pr-2 */}
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center text-slate-300">
                       <CheckCircle className="w-4 h-4 text-green-400 mr-3 flex-shrink-0" />
@@ -108,8 +117,8 @@ const Services: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                
-                <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:bg-[#e11d48] transition-colors">
+
+                <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:bg-[#e11d48] transition-colors mt-auto"> {/* Added mt-auto */}
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4 inline" />
                 </button>
@@ -144,7 +153,7 @@ const Services: React.FC = () => {
           <div className="bg-[#fa1f5a] rounded-xl p-12 text-center">
             <h3 className="text-3xl font-bold text-white mb-4">Under Attack?</h3>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              If your Discord account or server is currently under attack, 
+              If your Discord account or server is currently under attack,
               our emergency response team is standing by 24/7.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
