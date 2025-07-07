@@ -30,14 +30,6 @@ const Services: React.FC = () => {
         'Special priority only giveaways',
         'Priority only Q&A events',
         'Colorful Discord Server Role',
-        // Add more features here to test scrolling:
-        'Exclusive Discord channel access',
-        'Dedicated support manager',
-        'Early access to new features',
-        'Monthly security reports',
-        'Custom bot integrations',
-        'Priority incident resolution',
-        'Enhanced community moderation tools'
       ],
       price: '$5/mo',
       popular: true
