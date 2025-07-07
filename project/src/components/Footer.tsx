@@ -3,17 +3,22 @@ import { Shield, Mail, Twitter, Github, MessageCircle, MapPin, Clock } from 'luc
 
 const Footer: React.FC = () => {
   const quickLinks = [
-    'Account Recovery',
-    'Server Protection', 
-    'Security Audit',
-    'Emergency Support'
+    // These links are assumed to be internal and potentially scroll to sections on the same page.
+    // If they should navigate to distinct pages, you'd define new routes for them in App.tsx
+    // and adjust their 'href' accordingly (e.g., '/services/account-recovery').
+    { name: 'Account Recovery', href: '#services' },
+    { name: 'Server Protection', href: '#services' },
+    { name: 'Security Audit', href: '#services' },
+    { name: 'Emergency Support', href: '#services' }
   ];
 
-  const legal = [
-    'Privacy Policy',
-    'Terms of Service',
-    'Refund Policy',
-    'Status Page'
+  const legalLinks = [
+    // 'Privacy Policy' is set to open in a new tab at '/privacy'.
+    // Other links are examples of how you might set up internal or external links.
+    { name: 'Privacy Policy', href: '/privacy', target: '_blank', rel: 'noopener noreferrer' },
+    { name: 'Terms of Service', href: '/terms' }, // Example: link to /terms (internal, same tab)
+    { name: 'Refund Policy', href: '/refund-policy' }, // Example: link to /refund-policy (internal, same tab)
+    { name: 'Status Page', href: 'https://status.securely.one', target: '_blank', rel: 'noopener noreferrer' } // Example: external link
   ];
 
   return (
@@ -32,9 +37,9 @@ const Footer: React.FC = () => {
                 <div className="text-xs text-slate-400 font-semibold">DISCORD SECURITY EXPERTS</div>
               </div>
             </div>
-            
+
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Professional Discord security services trusted by over 500+ users worldwide. 
+              Professional Discord security services trusted by over 500+ users worldwide.
               We protect, recover, and secure your Discord presence.
             </p>
 
@@ -56,13 +61,13 @@ const Footer: React.FC = () => {
 
             {/* Social Links */}
             <div className="flex space-x-3">
-              <a href="#" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
+              <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
+              <a href="https://github.com/yourorg" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
+              <a href="https://discord.gg/yourinvite" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-800 rounded-lg text-slate-400 hover:text-white hover:bg-[#fa1f5a] transition-all duration-300 hover:scale-110">
                 <MessageCircle className="h-5 w-5" />
               </a>
             </div>
@@ -74,8 +79,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-slate-300 hover:text-white transition-colors">
-                    {link}
+                  <a href={link.href} className="text-slate-300 hover:text-white transition-colors">
+                    {link.name}
                   </a>
                 </li>
               ))}
@@ -86,10 +91,15 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold text-white mb-4">Legal</h4>
             <ul className="space-y-3">
-              {legal.map((item, index) => (
+              {legalLinks.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="text-slate-300 hover:text-white transition-colors">
-                    {item}
+                  <a
+                    href={item.href}
+                    target={item.target || '_self'} // Defaults to _self if target is not specified
+                    rel={item.rel || ''} // Defaults to empty string if rel is not specified
+                    className="text-slate-300 hover:text-white transition-colors"
+                  >
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -103,7 +113,7 @@ const Footer: React.FC = () => {
             <div className="text-slate-400 text-sm text-center md:text-left">
               © 2024 Securely. All rights reserved.
             </div>
-            
+
             <div className="flex items-center space-x-6 text-sm">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
