@@ -74,12 +74,12 @@ const Hero: React.FC = () => {
           <div className="inline-flex items-center px-6 py-3 bg-[#fa1f5a]/20 border border-[#fa1f5a]/30 text-white rounded-full text-sm font-semibold backdrop-blur-sm hover:scale-105 transition-all duration-300 cursor-pointer group">
             <div className="flex items-center space-x-2 mr-3">
               <Star className="h-4 w-4 text-[#fa1f5a] animate-pulse" />
-              <span className="text-[#fa1f5a]">Trusted by 500K+ Discord users</span>
+              <span className="text-[#fa1f5a]">Trusted by 500+ Discord users</span>
             </div>
             <div className="w-px h-4 bg-white/30 mr-3"></div>
             <div className="flex items-center space-x-1">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 text-xs">Live Protection</span>
+              <div className="w-2 h-2 bg-[#fa1f5a] rounded-full animate-pulse"></div>
+              <span className="text-[#fa1f5a] text-xs">Live Protection</span>
             </div>
           </div>
         </div>
