@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const animateStats = () => {
-      const targets = { users: 500, accounts: 25, success: 98.5 };
+      const targets = { users: 500, accounts: 0, success: `TBD` };
       const duration = 2000;
       const steps = 60;
       const stepDuration = duration / steps;
@@ -42,19 +42,19 @@ const Hero: React.FC = () => {
     { 
       icon: Users, 
       label: 'Users Protected', 
-      value: `${animatedStats.users}K+`,
+      value: `${animatedStats.users}+`,
       color: 'bg-[#fa1f5a]'
     },
     { 
       icon: Shield, 
       label: 'Accounts Recovered', 
-      value: `${animatedStats.accounts}K+`,
+      value: `${animatedStats.accounts}`,
       color: 'bg-[#fa1f5a]'
     },
     { 
       icon: CheckCircle, 
       label: 'Success Rate', 
-      value: `${animatedStats.success}%`,
+      value: `${animatedStats.success}`,
       color: 'bg-[#fa1f5a]'
     },
   ];

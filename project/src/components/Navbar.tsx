@@ -148,10 +148,12 @@ const Navbar: React.FC = () => {
               </button>
 
               {/* CTA Button */}
-              <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                <Zap className="h-4 w-4" />
-                <span>Get Protection</span>
-              </button>
+        <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
+      <a href="https://discord.gg/V9wJ5jGPWj" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+    <Zap className="h-4 w-4" />
+    <span>Get Protection</span>
+  </a>
+</button>
             </div>
 
             {/* Mobile menu button */}

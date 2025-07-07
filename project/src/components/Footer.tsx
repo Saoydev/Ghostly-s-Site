@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
             </div>
             
             <p className="text-slate-300 mb-6 leading-relaxed">
-              Professional Discord security services trusted by over 500,000 users worldwide. 
+              Professional Discord security services trusted by over 500+ users worldwide. 
               We protect, recover, and secure your Discord presence.
             </p>
 
