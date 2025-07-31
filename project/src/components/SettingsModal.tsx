@@ -9,7 +9,7 @@ interface SettingsModalProps {
 
 const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
   const { language, setLanguage } = useTheme();
-  const [activeTab, setActiveTab] = useState('general');
+  const [activeTab, setActiveTab] = useState('appearance');
   const [notifications, setNotifications] = useState(true);
   const [autoScan, setAutoScan] = useState(true);
   const [soundEffects, setSoundEffects] = useState(true);
@@ -26,11 +26,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
   ];
 
   const tabs = [
-    { id: 'general', name: 'General', icon: User },
-    { id: 'security', name: 'Security', icon: Shield },
-    { id: 'notifications', name: 'Notifications', icon: Bell },
     { id: 'appearance', name: 'Appearance', icon: Palette },
-    { id: 'advanced', name: 'Advanced', icon: Zap },
   ];
 
   const ToggleSwitch = ({ enabled, onChange, label }: { enabled: boolean; onChange: () => void; label: string }) => (
@@ -93,24 +89,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
 
             {/* Content */}
             <div className="flex-1 p-6">
-              {activeTab === 'general' && (
-                <div className="space-y-6">
-                  {/* General tab content removed */}
-                </div>
-              )}
-
-              {activeTab === 'security' && (
-                <div className="space-y-6">
-                  {/* Security tab content removed */}
-                </div>
-              )}
-
-              {activeTab === 'notifications' && (
-                <div className="space-y-6">
-                  {/* Notifications tab content removed */}
-                </div>
-              )}
-
               {activeTab === 'appearance' && (
                 <div className="space-y-6">
                   <div>
@@ -154,12 +132,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                       </div>
                     </div>
                   </div>
-                </div>
-              )}
-
-              {activeTab === 'advanced' && (
-                <div className="space-y-6">
-                  {/* Advanced tab content removed */}
                 </div>
               )}
             </div>
