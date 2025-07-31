@@ -38,14 +38,12 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
       <span className="text-slate-200">{label}</span>
       <button
         onClick={onChange}
-        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-          enabled ? 'bg-[#fa1f5a]' : 'bg-slate-600'
-        }`}
+        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${enabled ? 'bg-[#fa1f5a]' : 'bg-slate-600'
+          }`}
       >
         <span
-          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-            enabled ? 'translate-x-6' : 'translate-x-1'
-          }`}
+          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${enabled ? 'translate-x-6' : 'translate-x-1'
+            }`}
         />
       </button>
     </div>
@@ -55,7 +53,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
     <div className="fixed inset-0 z-50 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity bg-black/60 backdrop-blur-sm" onClick={onClose} />
-        
+
         <div className="inline-block align-bottom bg-slate-800 rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full border border-slate-700">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-slate-700">
@@ -81,11 +79,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
-                      activeTab === tab.id
-                        ? 'bg-[#fa1f5a] text-white'
-                        : 'text-slate-300 hover:bg-slate-700 hover:text-white'
-                    }`}
+                    className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${activeTab === tab.id
+                      ? 'bg-[#fa1f5a] text-white'
+                      : 'text-slate-300 hover:bg-slate-700 hover:text-white'
+                      }`}
                   >
                     <tab.icon className="h-5 w-5" />
                     <span>{tab.name}</span>
@@ -98,119 +95,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
             <div className="flex-1 p-6">
               {activeTab === 'general' && (
                 <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                      <Globe className="h-5 w-5 mr-2 text-[#fa1f5a]" />
-                      Language & Region
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {languages.map((lang) => (
-                        <button
-                          key={lang.code}
-                          onClick={() => setLanguage(lang.code as 'en' | 'es' | 'fr')}
-                          className={`flex items-center space-x-3 p-3 rounded-lg border transition-colors ${
-                            language === lang.code
-                              ? 'border-[#fa1f5a] bg-[#fa1f5a]/10'
-                              : 'border-slate-600 hover:border-[#fa1f5a]/50'
-                          }`}
-                        >
-                          <span className="text-xl">{lang.flag}</span>
-                          <span className="text-slate-200">{lang.name}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4">Account</h4>
-                    <div className="space-y-3">
-                      <div className="p-4 bg-slate-700/50 rounded-lg">
-                        <div className="text-slate-200 font-medium">Account Status</div>
-                        <div className="text-green-400 text-sm">Premium Active</div>
-                      </div>
-                      <div className="p-4 bg-slate-700/50 rounded-lg">
-                        <div className="text-slate-200 font-medium">Protection Level</div>
-                        <div className="text-[#fa1f5a] text-sm">Maximum Security</div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* General tab content removed */}
                 </div>
               )}
 
               {activeTab === 'security' && (
                 <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                      <Lock className="h-5 w-5 mr-2 text-[#fa1f5a]" />
-                      Security Settings
-                    </h4>
-                    <div className="space-y-4">
-                      <ToggleSwitch
-                        enabled={autoScan}
-                        onChange={() => setAutoScan(!autoScan)}
-                        label="Automatic Security Scanning"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Real-time Threat Detection"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Advanced Malware Protection"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4">Privacy</h4>
-                    <div className="space-y-4">
-                      <ToggleSwitch
-                        enabled={false}
-                        onChange={() => {}}
-                        label="Share Anonymous Usage Data"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Encrypted Data Storage"
-                      />
-                    </div>
-                  </div>
+                  {/* Security tab content removed */}
                 </div>
               )}
 
               {activeTab === 'notifications' && (
                 <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                      <Bell className="h-5 w-5 mr-2 text-[#fa1f5a]" />
-                      Notification Preferences
-                    </h4>
-                    <div className="space-y-4">
-                      <ToggleSwitch
-                        enabled={notifications}
-                        onChange={() => setNotifications(!notifications)}
-                        label="Security Alerts"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Threat Notifications"
-                      />
-                      <ToggleSwitch
-                        enabled={false}
-                        onChange={() => {}}
-                        label="Marketing Updates"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Emergency Alerts"
-                      />
-                    </div>
-                  </div>
+                  {/* Notifications tab content removed */}
                 </div>
               )}
 
@@ -234,7 +131,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
                       />
                       <ToggleSwitch
                         enabled={true}
-                        onChange={() => {}}
+                        onChange={() => { }}
                         label="High Contrast Mode"
                       />
                     </div>
@@ -262,44 +159,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
 
               {activeTab === 'advanced' && (
                 <div className="space-y-6">
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-                      <Zap className="h-5 w-5 mr-2 text-[#fa1f5a]" />
-                      Advanced Options
-                    </h4>
-                    <div className="space-y-4">
-                      <ToggleSwitch
-                        enabled={false}
-                        onChange={() => {}}
-                        label="Developer Mode"
-                      />
-                      <ToggleSwitch
-                        enabled={true}
-                        onChange={() => {}}
-                        label="Beta Features"
-                      />
-                      <ToggleSwitch
-                        enabled={false}
-                        onChange={() => {}}
-                        label="Debug Logging"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-4">Data Management</h4>
-                    <div className="space-y-3">
-                      <button className="w-full p-3 bg-slate-700 rounded-lg text-left text-slate-200 hover:bg-slate-600 transition-colors">
-                        Export Security Logs
-                      </button>
-                      <button className="w-full p-3 bg-slate-700 rounded-lg text-left text-slate-200 hover:bg-slate-600 transition-colors">
-                        Clear Cache
-                      </button>
-                      <button className="w-full p-3 bg-red-600/20 border border-red-500/30 rounded-lg text-left text-red-400 hover:bg-red-600/30 transition-colors">
-                        Reset All Settings
-                      </button>
-                    </div>
-                  </div>
+                  {/* Advanced tab content removed */}
                 </div>
               )}
             </div>
