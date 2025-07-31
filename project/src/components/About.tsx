@@ -59,7 +59,7 @@ const About: React.FC = () => {
               About <span className="text-[#fa1f5a]">Securely</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Founded by digital safety specialists to safeguard Discord communities from growing online threats. We are the trusted guardians, fostering an environment where hundreds of thousands of Discord users worldwide can interact reliably and with confidence.
+              Founded by digital safety specialists to safeguard Discord communities from growing online threats. We are the trusted guardians, fostering an environment where hundreds of thousands of Discord users worldwide can interact reliably and with confidence.
             </p>
           </div>
 
@@ -70,11 +70,11 @@ const About: React.FC = () => {
                 Our Mission
               </h3>
               <p className="text-lg text-slate-300 mb-6">
-                To create the most secure Discord ecosystem by providing comprehensive 
+                To create the most secure Discord ecosystem by providing comprehensive
                 security services, education, and rapid response to threats.
               </p>
               <p className="text-lg text-slate-300">
-                Our team of Discord security specialists 
+                Our team of Discord security specialists
                 work around the clock to identify threats and help victims recover.
               </p>
 
@@ -87,8 +87,8 @@ const About: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-6">
               {achievements.map((achievement, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group bg-slate-800/60 backdrop-blur-sm border border-slate-700/50 text-center p-6 rounded-2xl hover:scale-105 transition-all duration-300 hover:border-[#fa1f5a]/50 hover:shadow-2xl hover:shadow-[#fa1f5a]/10"
                 >
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-[#fa1f5a] rounded-xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -103,19 +103,7 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="text-center group">
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${feature.color} rounded-2xl mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                  <feature.icon className="h-8 w-8 text-white" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-4 group-hover:text-[#fa1f5a] transition-colors">
-                  {feature.title}
-                </h4>
-                <p className="text-slate-300">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+
         </div>
       </div>
     </section>

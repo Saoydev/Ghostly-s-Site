@@ -81,7 +81,7 @@ const OurProcess: React.FC = () => {
           <div className="text-center mb-8">
             <div className="inline-flex items-center px-4 py-2 bg-[#fa1f5a]/20 border border-[#fa1f5a]/30 text-white rounded-full text-sm font-semibold backdrop-blur-sm">
               <Star className="h-4 w-4 text-yellow-400 mr-2 animate-pulse" />
-              <span className="text-[#fa1f5a]">Trusted by 500K+ Discord users</span>
+              <span className="text-[#fa1f5a]">Trusted by 600+ Discord users</span>
             </div>
           </div>
 

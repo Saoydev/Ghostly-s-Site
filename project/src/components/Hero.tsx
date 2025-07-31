@@ -17,7 +17,7 @@ const Hero: React.FC = () => {
       // NOTE: Your 'targets' for animation are TBD.
       // For the animation to work, these should be numbers.
       // Example: const targets = { users: 500, accounts: 1000, success: 98.5 };
-      const targets = { users: 500, accounts: 1000, success: 98.5 }; // Placeholder numbers for animation
+      const targets = { users: 600, accounts: "TBD", success: "TBD" }; // Placeholder numbers for animation
       const duration = 2000;
       const steps = 60;
       const stepDuration = duration / steps;
