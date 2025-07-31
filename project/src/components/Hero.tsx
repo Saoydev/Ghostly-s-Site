@@ -107,23 +107,29 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-in fade-in slide-in-from-bottom duration-1000 delay-600">
             {/* Get Protection Button */}
-            <button className="group px-8 py-4 bg-[#fa1f5a] text-white rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-pink/25 relative overflow-hidden">
-              <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex items-center justify-center w-full h-full">
-                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative flex items-center">
-                  <Zap className="mr-2 h-5 w-5" />
-                  Get Protection
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </a>
-            </button>
+            <a
+              href={discordInviteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 bg-[#fa1f5a] text-white rounded-xl font-semibold hover:scale-105 transition-all duration-300 shadow-2xl hover:shadow-pink/25 relative overflow-hidden inline-flex items-center justify-center"
+            >
+              <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative flex items-center">
+                <Zap className="mr-2 h-5 w-5" />
+                Get Protection
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
             {/* Report Threat Button */}
-            <button className="group px-8 py-4 border-2 border-[#fa1f5a] text-[#fa1f5a] rounded-xl font-semibold hover:bg-[#fa1f5a] hover:text-white transition-all duration-300 hover:scale-105 transform backdrop-blur-sm">
-              <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
-                <AlertTriangle className="mr-2 h-5 w-5 group-hover:animate-pulse" />
-                Report Threat
-              </a>
-            </button>
+            <a
+              href={discordInviteLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group px-8 py-4 border-2 border-[#fa1f5a] text-[#fa1f5a] rounded-xl font-semibold hover:bg-[#fa1f5a] hover:text-white transition-all duration-300 hover:scale-105 transform backdrop-blur-sm inline-flex items-center justify-center"
+            >
+              <AlertTriangle className="mr-2 h-5 w-5 group-hover:animate-pulse" />
+              Report Threat
+            </a>
           </div>
         </div>
 
