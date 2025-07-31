@@ -1,34 +1,7 @@
 import React from 'react';
-import { Shield, Users, Award, Clock, Star, Zap } from 'lucide-react';
+import { Shield, Users, Award, Star, Zap } from 'lucide-react';
 
 const About: React.FC = () => {
-  const features = [
-    {
-      icon: Shield,
-      title: 'Expert Security',
-      description: 'Professional Discord security specialists with deep knowledge of cyber threats.',
-      color: 'from-red-500 to-pink-500'
-    },
-    {
-      icon: Users,
-      title: 'Account Recovery',
-      description: 'Advanced account recovery services with TBH% success rate.',
-      color: 'from-blue-500 to-cyan-500'
-    },
-    {
-      icon: Award,
-      title: 'Proven Results',
-      description: 'Over TBD successful account recoveries and counting.',
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      icon: Clock,
-      title: '24/7 Support',
-      description: 'Round-the-clock emergency response for critical incidents.',
-      color: 'from-purple-500 to-violet-500'
-    }
-  ];
-
   const achievements = [
     { value: '500+', label: 'Users Protected', icon: Users },
     { value: 'TBD', label: 'Accounts Recovered', icon: Shield },
@@ -102,8 +75,6 @@ const About: React.FC = () => {
               ))}
             </div>
           </div>
-
-
         </div>
       </div>
     </section>
