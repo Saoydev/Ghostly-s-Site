@@ -94,10 +94,11 @@ const Navbar: React.FC = () => {
 
       <nav
         ref={navbarRef} // Attach ref to the main nav container
-        className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl'
-          : 'bg-slate-900/80 backdrop-blur-sm'
-          }`}
+        className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl'
+            : 'bg-slate-900/80 backdrop-blur-sm'
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -177,15 +178,13 @@ const Navbar: React.FC = () => {
               </button>
 
               {/* CTA Button (Desktop) */}
-              <a
-                href={discordInviteLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2"
-              >
-                <Zap className="h-4 w-4" />
-                <span>Get Protection</span>
-              </a>
+              <button className="px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold hover:scale-105 transform transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-2">
+                {/* Changed the href here */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+                  <Zap className="h-4 w-4" />
+                  <span>Get Protection</span>
+                </a>
+              </button>
             </div>
 
             {/* Mobile menu button */}
@@ -225,8 +224,9 @@ const Navbar: React.FC = () => {
                 >
                   <span>{item.name}</span>
                   {item.dropdown && (
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                      }`} />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                      activeDropdown === item.name ? 'rotate-180' : ''
+                    }`} />
                   )}
                 </button>
                 {item.dropdown && activeDropdown === item.name && (
@@ -247,15 +247,13 @@ const Navbar: React.FC = () => {
 
             {/* Mobile CTA Button */}
             <div className="pt-4 border-t border-slate-700/50 mt-4">
-              <a
-                href={discordInviteLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#e11d48] transition-colors"
-              >
-                <Zap className="h-4 w-4" />
-                <span>Get Protection</span>
-              </a>
+              <button className="w-full px-6 py-3 bg-[#fa1f5a] text-white rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-[#e11d48] transition-colors">
+                {/* Changed the href here */}
+                <a href={discordInviteLink} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 w-full h-full justify-center">
+                  <Zap className="h-4 w-4" />
+                  <span>Get Protection</span>
+                </a>
+              </button>
             </div>
           </div>
         </div>
