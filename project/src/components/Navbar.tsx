@@ -94,10 +94,11 @@ const Navbar: React.FC = () => {
 
       <nav
         ref={navbarRef} // Attach ref to the main nav container
-        className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        className={`navbar-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
             ? 'bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50 shadow-2xl'
             : 'bg-slate-900/80 backdrop-blur-sm'
-          }`}
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -223,8 +224,9 @@ const Navbar: React.FC = () => {
                 >
                   <span>{item.name}</span>
                   {item.dropdown && (
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                      }`} />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                      activeDropdown === item.name ? 'rotate-180' : ''
+                    }`} />
                   )}
                 </button>
                 {item.dropdown && activeDropdown === item.name && (
